@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+// プロトファイルの名前空間を定義
+package PinPon;
+
+// 変換後のgoファイルを出力するディレクトリかつパッケージ名
+option go_package = "./go-protocol-buffer";
+
+message pinPonRequest {
+    string words = 1; // 数字はフィールド番号(タグ)
+};
+
+message pinPonResponse {
+    string words = 1; // 数字はフィールド番号(タグ)
+};
+
+service PinPonService {
+    rpc send (pinPonRequest) returns (pinPonResponse);
+}
